@@ -6,5 +6,3 @@ async function main(){
 }
 
 main();
-
-// ver min 36
