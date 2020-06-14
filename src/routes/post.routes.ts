@@ -1,10 +1,10 @@
 import { Router } from "express";
-
 const router = Router();
 
-router.route('')
-    .get((res, res) => )
+import { getPosts, createPost } from "../controllers/post.controller";
+
+router.route('/')
+    .get(getPosts)
+    .post(createPost);
 
 export default router;
-
-//ver min 39
