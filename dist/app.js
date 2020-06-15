@@ -14,14 +14,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 const express_1 = __importDefault(require("express"));
-const port = 3200 || process.env.PORT;
+const morgan_1 = __importDefault(require("morgan"));
+//Routes
+const index_routes_1 = __importDefault(require("./routes/index.routes"));
+const post_routes_1 = __importDefault(require("./routes/post.routes"));
 class App {
-    constructor() {
+    constructor(port) {
+        this.port = port;
         this.app = express_1.default();
+        this.settings();
+        this.middlewares();
+        this.routes();
+    }
+    //? configuracion de cambio de puerto al abrir el servidor
+    settings() {
+        this.app.set('port', this.port || process.env.PORT || 3200);
+    }
+    middlewares() {
+        this.app.use(morgan_1.default('dev'));
+        this.app.use(express_1.default.json());
+    }
+    routes() {
+        this.app.use(index_routes_1.default);
+        this.app.use('/posts', post_routes_1.default);
     }
     listen() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.app.listen(port);
+            yield this.app.listen(this.app.get('port'));
             console.log('Server on http://localhost:3200');
         });
     }
