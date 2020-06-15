@@ -16,6 +16,7 @@ export class App{
         this.routes();
     }
 
+    //? configuracion de cambio de puerto al abrir el servidor
     settings(){
         this.app.set('port', this.port || process.env.PORT || 3200)
     }
