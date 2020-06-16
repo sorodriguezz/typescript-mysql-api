@@ -7,10 +7,10 @@ API simple codificada con Typescript junto a una base de datos MySQL.
 
   - Para ejecutar el proyecto con TypeScript se necesita un compilador de este, el cual es `ts-node`. En este proyecto
   se ejecuta con: 
-  <code>$ npm run dev</code>
+  <pre><code>$ npm run dev</code></pre>
   
   - Para construir el proyecto y levantar en produccion se debe ejecutar:
-  <code>$ npm run build</code>
+  <pre><code>$ npm run build</code></pre>
   Usando las configuraciones del archivo `tsconfig.json`
   
   - **Antes de toda la ejecución del proyecto, se debe tener mysql corriendo y con la correcta configuracion en el archivo `database.ts`.**
